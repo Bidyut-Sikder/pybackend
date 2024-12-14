@@ -1,0 +1,13 @@
+python3 -m venv venv
+source venv/bin/activate
+to check --which python
+# Create a virtual environment
+python3 -m venv venv
+#Select Virtual Environment path 
+Go to command plate set interpretor path to=- 
+venv/bin/python 
+# Activate the virtual environment
+source venv/bin/activate
+
+# Deactivate the virtual environment (optional)
+# deactivate
