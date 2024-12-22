@@ -21,7 +21,7 @@ from sqlalchemy.orm import Session
 
 app=FastAPI()
 
-
+# Adding middleware cors to enable cross origin resource sharing
 
 origins=[
  "https://github.com",
@@ -35,7 +35,8 @@ origins=[
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=['*'], # To allow all origins or domains
+    # allow_origins=origins,
     allow_credentials=True, 
     allow_methods=["*"],
     allow_headers=["*"] 

@@ -2,8 +2,10 @@ from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-from app.models import Base
-from app.config import settings
+from app.models import Base # To access the Base class.It should be imported from modeles file
+ # that's why we have access all models class.
+from app.config import settings # To access the database settings
+
 
 from alembic import context
 
