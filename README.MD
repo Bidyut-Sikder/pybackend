@@ -1,5 +1,5 @@
 
-```python
+
 To get all the package names run:
 
 pip freeze >requirements.txt
