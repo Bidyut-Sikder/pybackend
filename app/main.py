@@ -8,7 +8,7 @@ from . import config
 from psycopg2.extras import RealDictCursor
 
 from . import models,schemas,utils
-from .routes import post,user,auth
+from .routes import post,user,auth,vote
 
 
 from .database import engine,get_db
@@ -25,5 +25,6 @@ app=FastAPI()
 app.include_router(post.router)
 app.include_router(user.router)
 app.include_router(auth.router)
+app.include_router(vote.router)
  
      

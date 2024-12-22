@@ -15,6 +15,7 @@ class Post(Base):
     created_at=Column(TIMESTAMP(timezone=True),nullable=False,server_default=text('now()'))
     user_id=Column(Integer,ForeignKey('users.id',ondelete='CASCADE'),nullable=False)
     user=relationship("User")
+    # votes=relationship('Vote')
 
 
 class User(Base):
@@ -27,11 +28,16 @@ class User(Base):
 
    
 
+class Vote(Base):
+    __tablename__='votes' 
+    #this is called composite key
+    # one to many realation
+    user_id=Column(Integer,ForeignKey('users.id',ondelete='CASCADE'),primary_key=True)
+    post_id=Column(Integer,ForeignKey('posts.id',ondelete='CASCADE'),primary_key=True)
+ 
 
 
-
-
-
+ 
 
 
 

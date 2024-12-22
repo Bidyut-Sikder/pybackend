@@ -5,18 +5,21 @@ class Settings(BaseSettings):
     # Use the appropriate data from the .env file
     database_username :str
     database_password :str
-    database_host :str  # Use the appropriate host
-    database_port :str    # Default PostgreSQL port
+    database_host :str  
+    database_port :str   
     database_name :str
+    SECRET_KEY:str
+    ALGORITHM:str
+    ACCESS_TOKEN_EXPIRE_MINUTES:int
     
-
+    
     class Config:
-        env_file = ".env"  # Optional: Load variables from a .env file
+        env_file = ".env"  
 
 # Initialize settings
 settings = Settings()
 
-print(settings)
+
 
 
  

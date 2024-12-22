@@ -10,15 +10,15 @@ from . import config
 
 # username = "postgres"
 # password = "bidyut"
-# host = "localhost"  # Use the appropriate host
-# port = "5432"       # Default PostgreSQL port
+# host = "localhost"  
+# port = "5432"      
 # database = "pybackend"
 
-print(config.settings)
+# print(config.settings)
 # Create the connection string
 DATABASE_URL = f"postgresql://{config.settings.database_username}:{config.settings.database_password}@{config.settings.database_host}:{config.settings.database_port}/{config.settings.database_name}"
 # print(DATABASE_URL)
-# DATABASE_URLl = f"postgresql://{username}:{password}@{host}:{port}/{database}"
+# DATABASE_URL = f"postgresql://{username}:{password}@{host}:{port}/{database}"
 # print(DATABASE_URLl)
 
 
@@ -64,11 +64,22 @@ def get_db():
 
 
 
+#we have posts table and users table.
+#right join means we want to get all the right table data though the left table data is null
+#left join means we want to get all the left table data though the right table data is null
+
+# SELECT email,count(posts.id)  FROM posts right join users on 
+# posts.user_id=users.id group by users.email
+
+# We can grouping the data by using group by keyword in sql query
+
+# SELECT email,count(posts.id)  FROM posts right join users on 
+# posts.user_id=users.id group by users.email
 
 
-
-
-
+# SELECT posts.* ,count(votes.post_id) FROM posts left join votes 
+# on votes.post_id=posts.id where posts.id=17
+# group by posts.id
 
 
 
