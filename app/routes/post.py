@@ -137,7 +137,7 @@ def delete_post(id: int,db:Session=Depends(get_db),current_user:int=Depends(auth
        
         if post.first()==None:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="post not found")
-        
+         
         
         if post.first().user_id!=current_user.id:
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="not authorized to perform requested action")
