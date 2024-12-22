@@ -12,6 +12,7 @@ from .. import auth2
 router=APIRouter(prefix='/posts',tags=['Posts'])
 
 
+
 # @router.get('/{id}',response_model=schemas.PostOut )
 @router.get('/{id}' )
 def get_by_id(id: int,db:Session=Depends(get_db),current_user:int=Depends(auth2.get_current_user)):
