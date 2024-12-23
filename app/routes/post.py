@@ -50,15 +50,15 @@ def get_by_id(id: int,db:Session=Depends(get_db),current_user:int=Depends(auth2.
 
 
 
-@router.get('/',response_model=List[schemas.PostOut])
+# @router.get('/',response_model=List[schemas.PostOut])
+@router.get('/')
 def get_posts(db: Session = Depends(get_db),current_user:int=Depends(auth2.get_current_user),
               limit:int=None,
               skip:int=None,
-              search:Optional[str]=None
-    
+              search:str=''
               ):
    
-    
+
     posts = db.query(
         models.Post,
         func.count(models.Vote.post_id).label('votes')
@@ -73,7 +73,6 @@ def get_posts(db: Session = Depends(get_db),current_user:int=Depends(auth2.get_c
     ).offset(
         skip
     ).all()
-
 
     serialized = [
         {
@@ -94,7 +93,7 @@ def get_posts(db: Session = Depends(get_db),current_user:int=Depends(auth2.get_c
         }
         for post,votes in posts
     ]
-    
+
     return serialized
 
 
