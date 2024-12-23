@@ -9,16 +9,17 @@ from psycopg2.extras import RealDictCursor
 from . import config
 
 # username = "postgres"
-# password = "bidyut"
+# password = "bidyut" 
 # host = "localhost"  
 # port = "5432"      
 # database = "pybackend"
-
+ 
 # print(config.settings)
 # Create the connection string
-DATABASE_URL = f"postgresql+psycopg2://{config.settings.database_username}:{config.settings.database_password}@{config.settings.database_host}:{config.settings.database_port}/{config.settings.database_name}"
 
-# print(DATABASE_URL)
+# DATABASE_URL = 'postgresql://bidyut:Kknc80HuNRFrAtYlsHEU8KqnqJ5YKWo8@dpg-ctkeuqij1k6c73co8430-a.singapore-postgres.render.com/pybackend'
+DATABASE_URL = f"postgresql+psycopg2://{config.settings.database_username}:{config.settings.database_password}@{config.settings.database_host}.singapore-postgres.render.com/{config.settings.database_name}"
+
 # DATABASE_URL = f"postgresql://{username}:{password}@{host}:{port}/{database}"
 # print(DATABASE_URLl)
 
