@@ -44,7 +44,7 @@ app.add_middleware(
  
 @app.get('/')
 def root():
-    return {"message": "Welcome to my API"}
+    return {"message": "Welcome to my API" }
   
   
 app.include_router(post.router)
