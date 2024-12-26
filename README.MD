@@ -57,3 +57,13 @@ volumes:
 
 
 ```
+```
+#Commands:
+docker compose up -d # to build and start the container in a detached mode
+docker compose up -d --build #If we made changes to the image then it forces to build the image and starts the container.
+docker compose down # stops the container
+
+
+
+```
+
