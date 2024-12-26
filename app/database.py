@@ -13,18 +13,24 @@ from . import config
 # host = "localhost"  
 # port = "5432"      
 # database = "pybackend"
- 
+  
 # print(config.settings)
 # Create the connection string
 
-# DATABASE_URL = 'postgresql://bidyut:Kknc80HuNRFrAtYlsHEU8KqnqJ5YKWo8@dpg-ctkeuqij1k6c73co8430-a.singapore-postgres.render.com/pybackend'
-DATABASE_URL = f"postgresql+psycopg2://{config.settings.database_username}:{config.settings.database_password}@{config.settings.database_host}.singapore-postgres.render.com/{config.settings.database_name}"
+# DATABASE_URl = 'postgresql://bidyut:Kknc80HuNRFrAtYlsHEU8KqnqJ5YKWo8@dpg-ctkeuqij1k6c73co8430-a.singapore-postgres.render.com/pybackend'
+# DATABASE_URl = f"postgresql+psycopg2://{config.settings.database_username}:{config.settings.database_password}@{config.settings.database_host}.singapore-postgres.render.com/{config.settings.database_name}"
 
-# DATABASE_URL = f"postgresql://{username}:{password}@{host}:{port}/{database}"
-# print(DATABASE_URLl)
+DATABASE_URl = f"postgresql+psycopg2://{config.settings.database_username}:{
+    config.settings.database_password}@{
+        config.settings.database_host}:5432/{config.settings.database_name}"
+
+# DATABASE_URl = "postgresql+psycopg2://postgres:bidyut@postgres:5432/pybackend"
+# DATABASE_URl = "postgresql+psycopg2://postgres:bidyut@172.17.0.1:5432/pybackend"
+ 
 
 
-engine = create_engine(DATABASE_URL)
+
+engine = create_engine(DATABASE_URl)
 
 
 
