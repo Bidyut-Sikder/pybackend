@@ -6,7 +6,14 @@ the root of our project. The `Dockerfile` contains instructions for building the
 image.
 
 ### Accessing Host pc's Postgresql database  from Container
- -  
+ **cd  /etc/postgresql/{Postgresql version}/main**
+ -  Set listen_addresses='*' in  postgresql.conf
+ -  Set host    all             all             0.0.0.0/0         md5 in pg_hba.conf
+ -  Restart postgresql service (sudo systemctl restart postgresql)
+
+
+
+
 ### Dockerfile
 
 
