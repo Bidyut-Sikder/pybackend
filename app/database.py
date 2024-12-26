@@ -24,9 +24,7 @@ DATABASE_URl = f"postgresql+psycopg2://{config.settings.database_username}:{
     config.settings.database_password}@{
         config.settings.database_host}:5432/{config.settings.database_name}"
 
-# DATABASE_URl = "postgresql+psycopg2://postgres:bidyut@postgres:5432/pybackend"
-# DATABASE_URl = "postgresql+psycopg2://postgres:bidyut@172.17.0.1:5432/pybackend"
- 
+
 
 
 

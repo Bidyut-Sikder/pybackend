@@ -1,12 +1,17 @@
 
- # /etc/nginx/sites-available/
+ # cd /etc/nginx/sites-available/
  # nano default
  
 server {
         listen 0.0.0.0:80 default_server;
         listen [::]:80 default_server;
         # server_name does not restrict ip accessiblity
-        server_name _; # Nginx decides which server block should handle the request by matching the incoming Host header to the server_name directives defined in its configuration.
+
+        server_name _;
+
+        # Nginx decides which server block should 
+       # handle the request by matching the incoming Host header
+       #  to the server_name directives defined in its configuration.
         # server_name sanjeev.com;
         #curl -H "Host: sanjeev.com" http://127.0.0.1
 
@@ -26,4 +31,5 @@ server {
 
 }
 
-# all ip will be proxyed to this http://localhost:8000
+# All ips are available in the network 
+# will be proxyed to this http://localhost:8000

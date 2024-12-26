@@ -41,9 +41,11 @@ CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "-b", "0.0.0.
 
 
 
-###  docker-compose.yml:
+####  docker-compose.yml:
+
 - When we run docker-compose.yml file it creates an image and a folder (named after application folder) insider docker-desktop containers folder.Inside Containers folder we will find our composed containers.They can only run from here.We cannot run composed images directly from the terminal or docker-desktop images.
 
+**We can remove the .env file if we use environment in docker-compose.yml file.**
 ```python
 
 # Using the Host's PostgreSQL database
@@ -63,6 +65,7 @@ services:
       - ALGORITHM=HS256
       - ACCESS_TOKEN_EXPIRE_MINUTES=60
 # If we use environment , we dont need to set the environment variables in the .env file .
+
 
 #Commands:
 docker compose up -d # to build and start the container
@@ -99,6 +102,50 @@ services:
     ports:
       - "5434:5434" # we did not use 5432 because it is the default port of the host's postgres database
 ```
+
+### Nginx Setup
+
+```python
+
+
+ # cd /etc/nginx/sites-available/
+ # nano default
+ 
+server {
+        listen 0.0.0.0:80 default_server; # Receives all ips
+        listen [::]:80 default_server;
+        # server_name does not restrict ip accessiblity
+
+        server_name _;
+
+        # Nginx decides which server block should 
+       # handle the request by matching the incoming Host header
+       #  to the server_name directives defined in its configuration.
+        # server_name sanjeev.com;
+        #curl -H "Host: sanjeev.com" http://127.0.0.1
+
+        location / {
+               # allow 192.168.43.60; # this ip of the network can access
+              #  deny all;
+                proxy_pass http://localhost:8000;
+                proxy_http_version 1.1;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $http_host;
+                proxy_set_header X-NginX-Proxy true;
+                proxy_redirect off;
+        }
+
+}
+
+# All ips are available in the network 
+# will be proxyed to this http://localhost:8000
+
+
+```
+
 
 
 

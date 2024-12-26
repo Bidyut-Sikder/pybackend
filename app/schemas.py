@@ -37,7 +37,7 @@ class PostBase(BaseModel):
     
     class Config:
         from_attributes = True
-
+ 
 
 class PostCreate(PostBase):
     pass
