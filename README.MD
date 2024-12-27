@@ -45,12 +45,15 @@ CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "-b", "0.0.0.
 
 ```
 
+## We can run our Docker Image in two different ways..
+
+####  1.Running this command in the terminal:
+- **docker run -p 8000:8000 -d ImageID** (out:expose)
 
 
+####  2.docker-compose.yml:
 
-####  docker-compose.yml:
-
-- When we run docker-compose.yml file it creates an image and a folder (named after application folder) insider docker-desktop containers folder.Inside Containers folder we will find our composed containers.They can only run from here.We cannot run composed images directly from the terminal or docker-desktop images.
+- When we run docker-compose.yml file it creates an image and a folder (named after application folder) inside docker-desktop containers folder.Inside Containers folder we will find our composed containers.They can only run using this docker-compose.yml file.We cannot run composed images directly from the terminal or docker-desktop images.
 
 **We can remove the .env file if we use environment in docker-compose.yml file.**
 ```python
