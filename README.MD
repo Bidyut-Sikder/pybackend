@@ -7,10 +7,11 @@ The following code is used to synchronize the local code with the Docker contain
 4. The Docker container will be synced with the local code.
 
 ### If we run our Docker Images with compose setup.We do not need to use any .env file.
+### And composed container can not be ran using docker-desktop app.
 
 
 
-##### Docker Image Development Mode
+## Docker Image Development Mode
 
 ### docker-compose.dev.yml
 
@@ -75,7 +76,7 @@ docker compose -f  docker-compose-dev.yml down # stops the container
 ```
 
 
-##### Docker Image Production Mode
+## Docker Image Production Mode
 
  - To use this image we need to have Environments varalbles set to the values we want to use in production.
 
