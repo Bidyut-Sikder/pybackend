@@ -1,0 +1,50 @@
+
+
+services:
+
+  bidyut:
+      # build: .
+      image: bidyutsikder/pybackend # use an image from Docker Hub (optional)
+      ports:
+        - "800:8000"  #production port out : docker expose port in 
+
+      # volumes:   # We stoped bind mount the current directory to container /app
+      #  - ./:/app:ro
+     
+      # command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+       # We stoped overriding the default starter command
+            
+      environment:
+        - database_username=${database_username}
+        - database_password=${database_password}
+        - database_host=${database_host}
+        - database_port=5434
+        - database_name=${database_name}
+        - SECRET_KEY=${SECRET_KEY}
+        - ALGORITHM=${ALGORITHM}
+        - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES}
+
+      depends_on:
+      - postgres  # Ensures postgres is started before the bidyut service
+     
+ 
+  postgres:
+    image: postgres:15
+    environment:
+        # - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=${database_password}
+        - POSTGRES_DB=${database_name}
+    ports:
+    - "5434:5434"
+    volumes:
+    - postgres-db:/var/lib/postgresql/data # Where we keep our  data  
+
+
+volumes:
+     postgres-db:  # multiple services can use the same volume
+
+
+
+
+
+# docker compose -f  docker-compose-prod.yml up -d # To run the services in production and detached mode

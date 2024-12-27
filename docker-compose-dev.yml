@@ -7,11 +7,11 @@ services:
       ports:
         - "8000:8000"
 
-      volumes:
+      volumes:   # bind mount the current directory to container /app
        - ./:/app:ro
      
       command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-       #overriding the default starter command
+       # overriding the default starter command
             
       environment:
         - database_username=postgres
@@ -41,3 +41,7 @@ services:
 
 volumes:
      postgres-db:  # multiple services can use the same volume
+
+
+
+# docker compose -f  docker-compose-dev.yml up -d # To run the services in development and detached mode
