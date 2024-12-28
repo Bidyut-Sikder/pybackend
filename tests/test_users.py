@@ -39,6 +39,17 @@ def test_login_users(client,session,test_users): # data=formdata,json=json data
 
 
 
+@pytest.mark.parametrize('email,password,status_code',[
+    ('bidyutsikder42001@gmail.com','bidyut',201),
+    ('bidyutsikder42002@gmail.com','bidyut',403),
+    ('bidyutsikder42003@gmail.com','bidyut',201),
+    ('bidyutsikder42004@gmail.com','bidyut',201),
+])
+def test_incorrect_login_users(client,session,status_code,test_users,email,password): # data=formdata,json=json data  
+    res=client.post('/login',data={'username':'email','password':'password'})
+
+    assert res.status_code==403
+
 
 
 
