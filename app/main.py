@@ -17,7 +17,7 @@ from sqlalchemy.orm import Session
 # creates all the database tables
 # instead of using this we will use alembic to create database tables
 
-models.Base.metadata.create_all(bind=engine)
+# models.Base.metadata.create_all(bind=engine)
 
 app=FastAPI()
 

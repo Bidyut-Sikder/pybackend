@@ -8,12 +8,7 @@ from sqlalchemy.orm import sessionmaker
 from psycopg2.extras import RealDictCursor
 from . import config
 
-# username = "postgres"
-# password = "bidyut" 
-# host = "localhost"  
-# port = "5432"      
-# database = "pybackend"
-  
+
 # print(config.settings)
 # Create the connection string
 
