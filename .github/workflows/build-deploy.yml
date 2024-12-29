@@ -87,7 +87,8 @@ jobs:
     steps:
     - name: Deploy to Render
       env:
-        RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+        RENDER_API_KEY: ${{secrets.RENDER_API_KEY}}
+        name: ${{secrets.BIDYUT}}
       run: |
         curl -X POST \
         -H "Authorization: Bearer $RENDER_API_KEY" \
@@ -98,4 +99,3 @@ jobs:
 
 
 
-# srv-ctkehv5umphs73fgc5cg
