@@ -86,7 +86,7 @@ jobs:
     needs: [build]
     steps:
       - name: Deploying to stuff
-        uses: echo 'going to deploy some stuff'
+        run: echo 'going to deploy some stuff'
 
 
 
