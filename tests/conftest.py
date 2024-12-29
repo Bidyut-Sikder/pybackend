@@ -10,7 +10,7 @@ from sqlalchemy.ext.declarative import declarative_base
 import pytest
 
 # TEST_DATABASE_URl = f"postgresql+psycopg2://postgres:bidyut@localhost:5432/pybackend_test_db"
-TEST_DATABASE_URl = f"postgresql+psycopg2://{config.settings.database_username}:{config.settings.database_password}@{config.settings.database_host}.singapore-postgres.render.com/{config.settings.database_name}"
+TEST_DATABASE_URl = f"postgresql+psycopg2://{config.settings.database_username}:{config.settings.database_password}@{config.settings.database_host}:{config.settings.database_port}/{config.settings.database_name}_test"
 engine = create_engine(TEST_DATABASE_URl)
 
 Testing_Session_SessionLocal=sessionmaker(autocommit=False,autoflush=False,bind=engine)
