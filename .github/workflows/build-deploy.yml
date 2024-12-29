@@ -17,9 +17,18 @@ permissions:
 
 jobs:
   build:
-
+    environment:
+      name: testing
+    env:
+      database_username : ${{secrets.DATABASE_USERNAME}}
+      database_password : ${{secrets.DATABASE_PASSWORD}}
+      database_host : ${{secrets.DATABASE_HOST}}
+      database_port : ${{secrets.DATABASE_PORT}}
+      database_name : ${{secrets.DATABASE_NAME}}
+      SECRET_KEY : ${{secrets.SECRET_KEY}}
+      ALGORITHM : ${{secrets.ALGORITHM}}
+      ACCESS_TOKEN_EXPIRE_MINUTES : ${{secrets.ACCESS_TOKEN_EXPIRE_MINUTES}}
     runs-on: ubuntu-latest
-
     steps:
     - name: pulling git repo
       uses: actions/checkout@v4
