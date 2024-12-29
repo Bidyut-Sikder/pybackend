@@ -6,7 +6,7 @@ from fastapi.testclient import TestClient
 from app import schemas,config,database,models,auth2
 from sqlalchemy import create_engine
 from  sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
+
 import pytest
 
 # TEST_DATABASE_URl = f"postgresql+psycopg2://postgres:bidyut@localhost:5432/pybackend_test_db"

@@ -19,8 +19,8 @@ jobs:
   build:
     environment:
       name: testing
-    env:
-      database_username : ${{secrets.DATABASE_USERNAME}} # This is from github secret 
+    env: # These are from github secret.
+      database_username : ${{secrets.DATABASE_USERNAME}} 
       database_password : ${{secrets.DATABASE_PASSWORD}}
       database_host : ${{secrets.DATABASE_HOST}}
       database_port : ${{secrets.DATABASE_PORT}}
@@ -29,7 +29,7 @@ jobs:
       ALGORITHM : ${{secrets.ALGORITHM}}
       ACCESS_TOKEN_EXPIRE_MINUTES : ${{secrets.ACCESS_TOKEN_EXPIRE_MINUTES}}
 
-    services:
+    services: # This service will create a postgresql database server on github actions just like other docker container.
       postgres: # This is the name of the service
         image: postgres # This is the image to use
         env:
@@ -61,7 +61,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Test with pytest
       run: |
-        pytest
+        pytest 
 
 
 
