@@ -19,7 +19,7 @@ def test_create_users(client,session):
 
 
 def test_get_users(client,test_users):
-    res=client.get(f'/users/{test_users['id']}')
+    res = client.get(f"/users/{test_users['id']}")
 
     # print(res.json())
     assert res.status_code==200
