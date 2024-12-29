@@ -71,12 +71,3 @@ def test_unauthorized_vote_on_post(client,test_users,test_posts):
 
 
 
-
-
-
-
-
-
-
-
-
