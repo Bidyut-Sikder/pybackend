@@ -18,7 +18,7 @@ permissions:
 jobs:
   build:
     environment:
-      name: testing
+      name: testing #This is the name of the environment list set on github environment
     env: # These are from github secret.
       database_username : ${{secrets.DATABASE_USERNAME}} 
       database_password : ${{secrets.DATABASE_PASSWORD}}
@@ -82,18 +82,17 @@ jobs:
     #     push: true
 
   deploy:
+    environment:
+      name: production #This is the name of the environment list set on github environment
     runs-on: ubuntu-latest
     needs: [build]
     steps:
-    - name: Deploy to Render
-      env:
-        RENDER_API_KEY: ${{secrets.RENDER_API_KEY}}
-        name: ${{secrets.BIDYUT}}
-      run: |
-        curl -X POST \
-        -H "Authorization: Bearer $RENDER_API_KEY" \
-        -H "Content-Type: application/json" \
-        https://api.render.com/v1/services/{SERVICE_ID}/deploys
+      - name: Deploy to Render
+        uses: ttskch/render-deploy@v1.0.0
+        with:
+          api-key: ${{ secrets.RENDER_API_KEY }}
+          service-id: ${{ secrets.RENDER_SERVICE_ID }}
+
 
 
 
