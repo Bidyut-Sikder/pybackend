@@ -15,9 +15,7 @@ from . import config
 # DATABASE_URl = 'postgresql://bidyut:Kknc80HuNRFrAtYlsHEU8KqnqJ5YKWo8@dpg-ctkeuqij1k6c73co8430-a.singapore-postgres.render.com/pybackend'
 # DATABASE_URl = f"postgresql+psycopg2://{config.settings.database_username}:{config.settings.database_password}@{config.settings.database_host}.singapore-postgres.render.com/{config.settings.database_name}"
 
-DATABASE_URl = f"postgresql+psycopg2://{config.settings.database_username}:{
-    config.settings.database_password}@{
-        config.settings.database_host}:5432/{config.settings.database_name}"
+DATABASE_URl = f"postgresql+psycopg2://{config.settings.database_username}:{config.settings.database_password}@{config.settings.database_host}:5432/{config.settings.database_name}"
 
 
 
